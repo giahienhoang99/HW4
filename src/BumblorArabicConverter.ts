@@ -31,7 +31,7 @@ function bumblor2arabic(bumblor: string): number {
     let result = 0;
     bumblor = bumblor.toUpperCase();
 
-    for (const numeral in map) {
+    for (const numeral  in map) {
         while (bumblor.startsWith(numeral)) {
             result += map[numeral];
             bumblor = bumblor.slice(numeral.length);
@@ -45,9 +45,11 @@ function arabic2bumblor(arabic: number): string {
     if (arabic < 1 || arabic > 4999) {
         throw new Error("Out of Range");
     }
+
     if (!Number.isInteger(arabic)) {
         throw new Error("Malformed Number")
     }
+
 
     const map = [
         {value: 1000, numeral: "M"},
